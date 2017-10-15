@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>reveal.js – The HTML Presentation Framework</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h2>ΔΗΛΩΤΙΚΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ</h2>
+				<h3>Declarative Programming</h3>
+				Γκόγκος Χρήστος - ΤΕΙ Ηπείρου
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Επιγράμματα στον προγραμματισμό
+
+					<q>&ldquo;A language that doesn’t affect the way you think about programming is not worth knowing&rdquo;</q> (Alan Perlis)
+					![Alan Perlis](http://www.azquotes.com/public/pictures/authors/98/5b/985b54735ce3ba1756184856e88b36a4/53b14cd01a532_alan_perlis.jpg)
+				</textarea>
+			</section>
+			<section>
+				<section>
+					<h2>Τι είναι ο δηλωτικός προγραμματισμός; </h2>
+					<p>
+						Ο δηλωτικός προγραμματισμός είναι μια
+						<em>υψηλού επιπέδου</em> προσέγγιση στον προγραμματισμό στην οποία περιγράφεται η λογική του προβλήματος και ακολουθεί
+						η αυτόματη επίλυση του από έναν μηχανισμό που είναι ενσωματωμένος στην ίδια την γλώσσα.
+					</p>
+					<img src="./images/arrow-down.png" style="width:10%">
+				</section>
+
+				<section>
+					<h3>Κατηγορίες γλωσσών δηλωτικού προγραμματισμού</h3>
+					<ul>
+						<li>Γλώσσες λογικού προγραμματισμού (Prolog)</li>
+						<li>Γλώσσες συναρτησιακού προγραμματισμού (Lisp, Haskell, F#, Scala, Clojure, ...)</li>
+						<li>Γλώσσες ερωτοαπαντήσεων (SQL)</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Λογικός Προγραμματισμός</h2>
+					<p>
+						Ο Λογικός Προγραμματισμός (ΛΠ) βασίζεται στη μαθηματική λογική (κατηγορηματική λογική πρώτης τάξεως) και στην αρχή της ανάλυσης
+						(resolution principle)
+					</p>
+					<h4>Γιατί υπάρχει ο ΛΠ;</h4>
+					<span class="fragment">
+						<ul>
+							<li>Επιτρέπει την αποτύπωση συλλογισμών για την επίλυση προβλημάτων</li>
+							<li>Προσφέρει δυνατότητες μάθησης και κατανόησης συμβολικής πληροφορίας</li>
+						</ul>
+					</span>
+					<aside class="notes">
+						Παραδοσιακές γλώσσες τεχνητής νοημοσύνης είναι η Lisp (1950s) και η Prolog (1970s)
+					</aside>
+				</section>
+				<section>
+					<h2>Μαθηματική Λογική</h2>
+					<p> Η μαθηματική λογική διερευνά τη σχέση ανάμεσα σε υποθέσεις και συμπεράσματα </p>
+				</section>
+				<section>
+					<h2>Παράδειγμα λογικού συμπερασμού</h2>
+					<p>
+						Στον Χρήστο αρέσουν οι μεγάλες πόλεις.</br>
+						Η Αθήνα είναι μεγάλη πόλη.</br>
+						Άρα:</br>
+						Στον Χρήστο αρέσει η Αθήνα.
+					</p>
+				</section>
+			</section>
+
+			<section data-background-transition="zoom">
+				<section>
+					<h1>Prolog</h1>
+					<h2>Βασικά χαρακτηριστικά</h2>
+					<ul>
+						<li>Δηλωτική σημασιολογία (declarative semantics)</li>
+						<li>Μηχανισμός ενοποίησης όρων (pattern matching)</li>
+						<li>Μηχανισμός οπισθοδρόμησης (backtracking)</li>
+					</ul>
+					<img src="./images/arrow-down.png">
+				</section>
+				<section>
+					<h2>Πεδία εφαρμογής της Prolog</h2>
+					<ul>
+						<li>Επεξεργασία φυσικής γλώσσας</li>
+						<li>Αυτόματη απόδειξη θεωρημάτων</li>
+						<li>Έμπειρα συστήματα και συστήματα υποστήριξης αποφάσεων</li>
+						<li>Λογισμικά κατάστρωσης πλάνων και χρονοπρογραμματισμού</li>
+						<li>Βάσεις Δεδομένων</li>
+						<li>Εφαρμογές σημασιολογικού ιστού</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Περιβάλλον εκτέλεσης προγραμμάτων της Prolog</h3>
+					<ul>
+						<li>Βάση γνώσης (γεγονότα και κανόνες)</li>
+						<li>Μηχανισμός εξαγωγής συμπερασμάτων</li>
+						<li>Ερωτήματα του χρήστη</li>
+					</ul>
+					<img src="./images/swiprolog.png" alt="SWI Prolog" style="width:50%">
+				</section>
+				<section>
+					<h2>Διαδεδομένες υλοποιήσεις της Prolog</h2>
+					<ul>
+						<li>SWI Prolog</li>
+						<li>GNU Prolog</li>
+						<li>Eclipse</li>
+						<li>B Prolog</li>
+						<li>YAP</li>
+						<li>Amzi Prolog</li>
+						<li>SICSTUS Prolog</li>
+						<li>Visual Prolog</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ορίσματα διπλής κατεύθυνσης στην Prolog</h2>
+					<p>Τα κατηγορήματα της Prolog δεν επιστρέφουν τιμές όπως οι συναρτήσεις των προστακτικών γλωσσών προγραμματισμού</p>
+					<p>Τα ίδια τα ορίσματα μπορούν να χρησιμοποιηθούν έτσι ώστε να επιστρέφουν τις ζητούμενες ποσότητες</p>
+					<p>Το κατηγόρημα append(X,Y,Z) που συνενώνει τις λίστες X και Y σε μια λίστα Z επιδεικνύει το διπλό ρόλο των ορισμάτων</p>
+				</section>
+				<section>
+					<h2>Το κατηγόρημα append της Prolog </h2>
+					<span class="fragment">
+						<pre><code class="prolog">?- append([a,b],[c,d],[a,b,c,d]).</code></pre>
+						<pre><code class="nohighlight">true</code></pre>
+					</span>
+
+					<span class="fragment">
+						<pre><code class="prolog">?- append([a,b],[c,d],X).</code></pre>
+						<pre><code class="nohighlight">X=[a,b,c,d]</code></pre>
+					</span>
+
+					<span class="fragment">
+						<pre><code class="prolog">?- append([X,Y,[a,b,c,d]]).</code></pre>
+						<pre><code class="nohighlight">X=[], Y=[a,b,c,d];</code></pre>
+						<pre><code class="nohighlight">X=[a], Y=[b,c,d];</code></pre>
+						<pre><code class="nohighlight">X=[a,b], Y=[c,d];</code></pre>
+						<pre><code class="nohighlight">X=[a,b,c], Y=[d];</code></pre>
+						<pre><code class="nohighlight">X=[a,b,c,d], Y=[];</code></pre>
+					</span>
+				</section>
+			</section>
+			<section data-background-transition="zoom">
+				<section>
+					<h2>Θεωρητικό υπόβαθρο της Prolog</h2>
+					<img src="./images/arrow-down.png">
+				</section>
+				<section>
+					<h2>Φράσεις Horn</h2>
+					<ul>
+						<li>Οι φράσεις Horn είναι υποσύνολο της κατηγορηματικής λογικής πρώτης τάξεως</li>
+						<li>Μια φράση Horn έχει τη μορφή $$(p \wedge q \wedge \dots \wedge r) \to t $$ δηλαδή η σύζευξη των προτάσεων $p,q,r$ συνεπάγεται
+							την πρόταση $r$</li>
+						<li>Οι φράσεις Horn είναι σημαντικές στο λογικό προγραμματισμό λόγω του ότι επιτρέπουν την υπολογιστικά αποδοτική, αυτόματη
+							απόδειξη θεωρημάτων εφαρμόζοντας τον κανόνα της ανάλυσης</li> .
+					</ul>
+				</section>
+				<section>
+					<h2>Αρχή της ανάλυσης</h2>
+					<p>
+						Η αρχή της ανάλυσης είναι ένας κανόνας συμπερασμού (inference rule) που ανακαλύφθηκε από τον John Alan Robinson το 1965
+					</p>
+					$$\frac{a_1 \vee a_2 \vee \dots \vee a_n \vee c , b_1 \vee b_2 \vee \dots \vee b_m \vee \lnot c}{a_1 \vee a_2 \vee \dots
+					\vee a_n \vee b_1 \vee b_2 \vee \dots \vee b_m} $$
+					<p>
+						Η αρχή της ανάλυσης εφαρμόζεται για την απόδειξη θεωρημάτων χρησιμοποιώντας την τεχνική απόδειξης δια της απαγωγής σε άτοπο
+					</p>
+				</section>
+				<section>
+					<h2>SLD resolution</h2>
+					Η SLD (Selective Linear Definite clause) resolution είναι ο βασικός κανόνας συμπερασμού που χρησιμοποιείται στο λογικό προγραμματισμό.
+					Πρόκειται για μια αποδεικτική διαδικασία η οποία μπορεί να ακολουθηθεί αποδοτικά από ένα υπολογιστικό σύστημα.
+				</section>
+				<section>
+					<h2>Waren Abstract Machine (WAM)</h2>
+					<ul>
+						<li>
+							Η WAM είναι μια αφηρημένη μηχανή που επιτρέπει την αποδοτική εκτέλεση προγραμμάτων Prolog
+						</li>
+						<li>
+							Αποτελείται από μια αρχιτεκτονική μνήμης και ένα σύνολο εντολών
+						</li>
+						<li>
+							Το πρόγραμμα Prolog μεταγλωττίζεται σε εντολές WAM καθιστόντας τη διερμηνεία του προγράμματος περισσότερο αποδοτική
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h2>Αλγόριθμοι και δομές δεδομένων = Προγράμματα</h2>
+				<table>
+					<tr>
+						<td style="vertical-align:top;width:80%">Οι αλγόριθμοι και οι δομές δεδομένων είναι εκ φύσεως συνδεδεμένοι μεταξύ τους. Για παράδειγμα αν κάποια δεδομένα είναι
+							αποθηκευμένα σε μια ταξινομημένη λίστα τιμών τότε μπορεί να σχεδιαστεί αλγόριθμος που χρησιμοποιώντας αυτή την πληροφορία
+							θα εντοπίζει με βέλτιστο τρόπο κάθε στοιχείο που αναζητείται στη λίστα
+						</td>
+						<td>
+							<img src="https://upload.wikimedia.org/wikipedia/en/9/90/Algorithms_%2B_Data_Structures.jpg">
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section>
+				<h2>Αλγόριθμος = Λογική και έλεγχος</h2>
+				<table>
+					<tr>
+						<td style="vertical-align:top;width:80%"> Ένας αλγόριθμος μπορεί να θεωρηθεί ότι αποτελείται από ένα λογικό τμήμα που καθορίζει τη γνώση που απαιτείται για την
+							επίλυση ενός προβλήματος και ένα τμήμα ελέγχου που καθορίζει τη στρατηγική επίλυσης του προβλήματος μέσω της οποίας
+							υλοποιείται ένας τρόπος χρήσης της γνώσης του προβλήματος
+						</td>
+						<td>
+							<img src="https://www.doc.ic.ac.uk/~rak/rak_files/LFPSbookcover.jpg">
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section>
+				<h2>Δηλωτική σημασιολογία έναντι Διαδικαστικής σημασιολογίας</h2>
+				<p>Η δηλωτική σημασιολογία χαρακτηρίζει τη σημασία ενός προγράμματος με βάση το «τι κάνει» ενώ η διαδικαστική σημασιολογία
+					αφορά το «πώς κάνει» ένα πρόγραμμα το έργο που πρέπει
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Διαφορές δηλωτικού και προστακτικού προγραμματισμού</h2>
+					<img src="./images/arrow-down.png">
+				</section>
+				<section>
+					<h2>1. Τρόπος ορισμού της λύσης του προβλήματος</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Προστακτικός Προγραμματισμός</th>
+								<th>Δηλωτικός Προγραμματισμός</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Λογική και έλεγχος</td>
+								<td>Μόνο λογική</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Υπολογισμός παραγοντικού (Java)</h2>
+					Με επανάληψη
+					<pre><code data-trim data-noescape>
+						int factorial(int n) {
+							int f = 1;
+							for (int i = 2; i <= n; i++)
+								f *= i;
+							return f;
+						}
+					</code></pre> Με αναδρομή
+					<pre><code data-trim data-noescape>
+						int factorial(int n) {
+							if (n == 0)
+								return 1;
+							else
+								return n * factorial(n - 1);
+						}							
+					</code></pre>
+				</section>
+				<section>
+					<h2>Υπολογισμός παραγοντικού στη Prolog</h2>
+					<pre><code data-trim data-noescape>
+						factorial(0,1).
+						factorial(N,F) :-
+							N>0,
+							N1 is N-1,
+							factorial(N1,F1),
+							F is N*F1.			
+					</code></pre>
+				</section>
+				<section>
+					<h2>2. Τρόπος χειρισμού των μεταβλητών</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Προστακτικός Προγραμματισμός</th>
+								<th>Δηλωτικός Προγραμματισμός</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Καταστροφική καταχώρηση</td>
+								<td>Μη καταστροφική καταχώρηση (οι μεταβλητές μπορούν να ανατεθούν μια μόνο φορά)</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>3. Μοντέλο διαχείρισης μνήμης</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Προστακτικός Προγραμματισμός</th>
+								<th>Δηλωτικός Προγραμματισμός</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Η μνήμη λειτουργεί ως μεσάζων στη μεταφορά δεδομένων (side effects)</td>
+								<td>Η μεταφορά δεδομένων γίνεται μόνο μέσω περάσματος παραμέτρων</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Side effects</h2>
+					<pre style="font-size:40%"><code data-trim data-noescape>
+						public class Example01 { 
+							static int g = 10;
+						
+							static int func(int x) {
+								g++;
+								return 2 * x + g;
+							}
+						 
+							public static void main(String[] args) {
+								int x = 5;
+								System.out.println("First call of func: " + func(x)); 
+								System.out.println("Second call of func: " + func(x));
+						 
+							}
+						}							
+					</code></pre>
+					<pre><code class="nohighlight">First call of func: 21</code></pre>
+					<pre><code class="nohighlight">Second call of func: 22</code></pre>
+				</section>
+				<section>
+					<h2>4. Πεδίο δράσης μεταβλητών</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Προστακτικός Προγραμματισμός</th>
+								<th>Δηλωτικός Προγραμματισμός</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Το πεδίο δράσης των μεταβλητών μπορεί να είναι ακόμα και καθολικό</td>
+								<td>Οι μεταβλητές είναι περιορισμένες σχετικά με το πεδίο δράσης τους</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<h2>Διαφάνεια αναφοράς</h2>
+				<ul>
+					<li>Μια έκφραση έχει διαφάνεια αναφοράς αν μπορεί να αντικατασταθεί από την τιμή της χωρίς να αλλάζει τη συμπεριφορά του
+						προγράμματος </li>
+					<li>Η διαφάνεια αναφοράς είναι βασικό χαρακτηριστικό του συναρτησιακού προγραμματισμού </li>
+					<li>Στο συναρτησιακό προγραμματισμό αν μια συνάρτηση καλείται με τις ίδιες τιμές παραμέτρων, τότε κάθε κλήση της θα επιστρέφει
+						την ίδια έξοδο</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Διπλή ερμηνεία των λογικών προγραμμάτων</h2>
+				<p>Έστω η λογική πρόταση $B \wedge C \to A$ η οποία γράφεται στην Prolog ως $A:-B,C.$
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Δηλωτική σημασιολογία</th>
+							<th>Διαδικαστική σημασιολογία</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Αν αληθεύει το $Β$ και αληθεύει και το $C$ τότε αληθεύει το $A$</td>
+							<td>Για να εκτελεστεί το $A$ θα πρέπει να κληθούν με τη σειρά οι διαδικασίες $B$ και $C$</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+					src: 'lib/js/classList.js',
+					condition: function () {
+						return !document.body.classList;
+					}
+				},
+				{
+					src: 'plugin/markdown/marked.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/markdown/markdown.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function () {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/math/math.js',
+					async: true
+				}
+			]
+		});
+	</script>
+
+</body>
+
+</html>
